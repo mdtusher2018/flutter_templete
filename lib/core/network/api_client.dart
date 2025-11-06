@@ -1,19 +1,22 @@
 // lib/core/network/api_client.dart
-import 'dart:developer';
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:template/core/network/api_exception.dart';
-import 'package:template/core/network/auth_interceptor.dart/auth_interceptor.dart';
-import 'package:template/core/network/auth_interceptor.dart/logger_interceptor.dart';
-import 'package:template/core/network/auth_interceptor.dart/refresh_token_interceptor.dart';
-import 'package:template/core/network/auth_interceptor.dart/retry_interceptor.dart';
+import 'package:template/core/utils/logger.dart';
+import 'package:template/core/error/api_exception.dart';
+import 'package:template/core/network/interceptor.dart/auth_interceptor.dart';
+import 'package:template/core/network/interceptor.dart/logger_interceptor.dart';
+import 'package:template/core/network/interceptor.dart/refresh_token_interceptor.dart';
+import 'package:template/core/network/interceptor.dart/retry_interceptor.dart';
+import 'package:template/core/storage/i_local_storage_service.dart';
 
 class ApiClient {
-  final Dio dio;
+  final Dio dio; 
+  final ILocalStorageService localStorage;
 
   ApiClient({
     Dio? dio,
     required String baseUrl,
+    required this.localStorage,
     Duration connectTimeout = const Duration(seconds: 10),
     Duration receiveTimeout = const Duration(seconds: 15),
   }) : dio = dio ??
@@ -25,10 +28,10 @@ class ApiClient {
               validateStatus: (_) => true,
             )) {
     // add interceptors
-    this.dio.interceptors.add(LoggingInterceptor());
-    this.dio.interceptors.add(AuthInterceptor());
-    this.dio.interceptors.add(RefreshTokenInterceptor(this.dio));
+    this.dio.interceptors.add(AuthInterceptor(localStorage));
+    this.dio.interceptors.add(RefreshTokenInterceptor(this.dio,localStorage));
     this.dio.interceptors.add(RetryOnConnectionChangeInterceptor(dio: this.dio));
+    this.dio.interceptors.add(LoggingInterceptor());
   }
 
   Future<dynamic> get(Uri url, {Map<String, String>? headers}) async {
@@ -86,7 +89,7 @@ class ApiClient {
     final statusCode = r.statusCode ?? 0;
     final data = r.data;
 
-    log('API RESPONSE: ${r.requestOptions.uri} -> $statusCode : $data');
+    Logger.log('API RESPONSE: ${r.requestOptions.uri} -> $statusCode : $data');
 
     if (statusCode >= 200 && statusCode < 300) return data;
 

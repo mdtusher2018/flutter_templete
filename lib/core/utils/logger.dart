@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-class LoggerService {
+class Logger {
   static void log(String message, {String? tag}) {
     if (!kReleaseMode) {
       // Only log in debug mode

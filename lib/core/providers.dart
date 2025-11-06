@@ -14,7 +14,8 @@ final localStorageProvider = Provider<ILocalStorageService>((ref) {
 
 // Provide ApiClient
 final apiClientProvider = Provider<ApiClient>((ref) {
-  return ApiClient(baseUrl: ApiEndpoints.baseUrl);
+  final localService = ref.watch(localStorageProvider);
+  return ApiClient(baseUrl: ApiEndpoints.baseUrl, localStorage: localService);
 });
 
 // Provide ApiService

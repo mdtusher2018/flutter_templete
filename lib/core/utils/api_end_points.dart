@@ -8,4 +8,16 @@ class ApiEndpoints {
   static const String baseUrl = 'http://147.93.29.184:8020/api/v1/';
   static const String baseImageUrl = 'http://147.93.29.184:8020';
 
+  static String refreshToken = "auth/refresh";
+
+  //authentication
+  static String signin = "auth/signin";
+
+  static String userSignUp = "auth/sign-up";
+
+  static String emailVerification = "auth/verify-email";
+  static String resendOTP = "auth/resend-otp";
+
+  static String forgetPassword = "auth/forget-password";
+  static String verifyOTP = "auth/verify-otp";
 }
