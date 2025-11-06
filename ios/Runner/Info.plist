@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-
-	<!-- ✅ Core iOS App Settings -->
-	<key>CADisableMinimumFrameDurationOnPhone</key>
-	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Template</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -18,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>event_ease</string>
+	<string>template</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -27,80 +22,7 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
-
-	<!-- ✅ Flutter Integration -->
-	<key>io.flutter.embedded_views_preview</key>
-	<true/>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-
-	<!-- ✅ Firebase & Notifications -->
-	<key>FirebaseAppDelegateProxyEnabled</key>
-	<false/> <!-- set to false if handling manually in AppDelegate -->
-
-	<!-- ✅ Location & Permission Descriptions -->
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need your location to provide location-based services.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>This app needs microphone access to record videos or audio.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We use your location to show nearby services and provide accurate roadside assistance.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We need access to your location even when the app is in the background to track roadside assistance routes accurately.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We use your camera to upload photos for verification or service reports.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We use your photo library to attach photos related to your roadside service requests.</string>
-
-	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
-
-
-	<!-- ✅ Background Modes -->
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-		<string>remote-notification</string>
-	</array>
-
-	<!-- ✅ Google Maps Key (replace YOUR_IOS_MAPS_API_KEY) -->
-	<key>GMSApiKey</key>
-	<string>AIzaSyAicZRwkffHVARNs1m6LKk_5lsA2LYAb6U</string>
-
-
-	<!-- ✅ Allow external links for url_launcher and webview_flutter -->
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>http</string>
-		<string>https</string>
-		<string>mailto</string>
-		<string>tel</string>
-		<string>sms</string>
-	</array>
-
-	<!-- ✅ WebView & App Links -->
-	<key>NSUserActivityTypes</key>
-	<array>
-		<string>NSUserActivityTypeBrowsingWeb</string>
-	</array>
-	<key>WKAppBoundDomains</key>
-	<array>
-		<string>api.pianofesta.it</string> <!-- Replace with your domain -->
-	</array>
-
-	<!-- ✅ Push Notification Delegate -->
-	<key>UNUserNotificationCenterDelegate</key>
-	<true/>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>This app needs access to your local network for development debugging and communication.</string>
-
-
-	<!-- ✅ Orientation & UI -->
 	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -109,13 +31,19 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 </dict>
 </plist>
