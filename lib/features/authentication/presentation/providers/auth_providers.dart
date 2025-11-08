@@ -1,10 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:template/core/providers.dart';
 import 'package:template/features/authentication/data/repositories/auth_repository.dart';
+import 'package:template/features/authentication/domain/entites/email_verified_entity.dart';
 import 'package:template/features/authentication/domain/entites/signin_entity.dart';
 import 'package:template/features/authentication/domain/entites/signup_entity.dart';
+import 'package:template/features/authentication/domain/usecase/email_verified_usecase.dart';
 import 'package:template/features/authentication/domain/usecase/signin_usecase.dart';
 import 'package:template/features/authentication/domain/usecase/signup_usecase.dart';
+import 'package:template/features/authentication/presentation/notifiers/email_verified_notifier.dart';
 import 'package:template/features/authentication/presentation/notifiers/signin_notifier.dart';
 import 'package:template/features/authentication/presentation/notifiers/signup_notifier.dart';
 
@@ -50,3 +53,23 @@ final signupProvider =
         signupUseCase: signupUseCase,
       );
     });
+
+final emailVerificationProvider = StateNotifierProvider<
+  EmailVerifiedNotifier,
+  AsyncValue<EmailVerifiedEntity?>
+>((ref) {
+  final localStorage = ref.watch(localStorageProvider);
+  final apiService = ref.watch(apiServiceProvider);
+  final snackbarService = ref.watch(snackBarServiceProvider);
+  final authRepository = ref.watch(authRepositoryProvider);
+  final emailVerifiedUseCase = EmailVerifiedUsecase(
+    authRepository: authRepository,
+    localStorage: localStorage,
+  );
+
+  return EmailVerifiedNotifier(
+    apiService,
+    snackbarService,
+    emailVerifiedUsecase: emailVerifiedUseCase,
+  );
+});

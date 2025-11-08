@@ -1,5 +1,6 @@
 import 'package:template/core/services/network/i_api_service.dart';
 import 'package:template/core/utils/api_end_points.dart';
+import 'package:template/features/authentication/data/models/email_verified_model.dart';
 import 'package:template/features/authentication/data/models/signin_response.dart';
 import 'package:template/features/authentication/data/models/signup_response.dart';
 import 'package:template/features/authentication/domain/repositories/i_auth_repository.dart';
@@ -25,5 +26,15 @@ class AuthRepository implements IAuthRepository {
       "password": password,
     });
     return SignupResponse.fromJson(res);
+  }
+
+  @override
+  Future<EmailVerifiedResponse> emailVerification(String otp) async {
+    final res = await api.post(ApiEndpoints.emailVerification, {
+      "otp": otp,
+      "purpose": "email-verification",
+    });
+
+    return EmailVerifiedResponse.fromJson(res);
   }
 }

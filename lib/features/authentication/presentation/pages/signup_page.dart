@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:template/features/authentication/domain/entites/signup_entity.dart';
+import 'package:template/features/authentication/presentation/pages/email_verification_page.dart';
 import 'package:template/features/authentication/presentation/providers/auth_providers.dart';
 
 class SignupPage extends ConsumerWidget {
@@ -12,7 +14,20 @@ class SignupPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final signupState = ref.watch(signupProvider);
-
+    ref.listen<AsyncValue<SignupEntity?>>(signupProvider, (prev, next) {
+      next.whenData((success) {
+        if (success != null) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return EmailVerificationPage();
+              },
+            ),
+          );
+        }
+      });
+    });
     return Scaffold(
       appBar: AppBar(title: const Text("Signup")),
       body: Padding(

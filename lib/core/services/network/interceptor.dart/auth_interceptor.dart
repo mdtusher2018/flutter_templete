@@ -20,6 +20,7 @@ class AuthInterceptor extends Interceptor {
 
       if (accessToken != null && accessToken.isNotEmpty) {
         options.headers['Authorization'] = 'Bearer $accessToken';
+        options.headers['SignUpToken'] = 'signUpToken $accessToken';
       }
       options.headers['Accept-Language'] = 'en';
     } catch (e, st) {

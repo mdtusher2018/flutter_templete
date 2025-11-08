@@ -14,31 +14,55 @@ class ApiService implements IApiService {
   }
 
   @override
-  Future<dynamic> get(String endpoint, {Map<String, String>? headers, bool fullUrl = false}) async {
+  Future<dynamic> get(
+    String endpoint, {
+    Map<String, String>? headers,
+    bool fullUrl = false,
+  }) async {
     final url = _buildUrl(endpoint, fullUrl);
     return _client.get(Uri.parse(url), headers: headers);
   }
 
   @override
-  Future<dynamic> post(String endpoint, dynamic body, {Map<String, String>? headers, bool fullUrl = false}) async {
+  Future<dynamic> post(
+    String endpoint,
+    dynamic body, {
+    Map<String, String>? headers,
+    bool fullUrl = false,
+  }) async {
     final url = _buildUrl(endpoint, fullUrl);
     return _client.post(Uri.parse(url), body: body, headers: headers);
   }
 
   @override
-  Future<dynamic> put(String endpoint, dynamic body, {Map<String, String>? headers, bool fullUrl = false}) async {
+  Future<dynamic> put(
+    String endpoint,
+    dynamic body, {
+    Map<String, String>? headers,
+    bool fullUrl = false,
+  }) async {
     final url = _buildUrl(endpoint, fullUrl);
     return _client.put(Uri.parse(url), body: body, headers: headers);
   }
 
   @override
-  Future<dynamic> patch(String endpoint, dynamic body, {Map<String, String>? headers, bool fullUrl = false}) async {
+  Future<dynamic> patch(
+    String endpoint,
+    dynamic body, {
+    Map<String, String>? headers,
+    bool fullUrl = false,
+  }) async {
     final url = _buildUrl(endpoint, fullUrl);
     return _client.patch(Uri.parse(url), body: body, headers: headers);
   }
 
   @override
-  Future<dynamic> delete(String endpoint, {Map<String, String>? headers, dynamic body, bool fullUrl = false}) async {
+  Future<dynamic> delete(
+    String endpoint, {
+    Map<String, String>? headers,
+    dynamic body,
+    bool fullUrl = false,
+  }) async {
     final url = _buildUrl(endpoint, fullUrl);
     return _client.delete(Uri.parse(url), body: body, headers: headers);
   }
