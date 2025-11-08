@@ -15,14 +15,15 @@ class AuthInterceptor extends Interceptor {
     RequestInterceptorHandler handler,
   ) async {
     try {
-      final accessToken = await _localStorage.readKey(StorageKey.accessToken) as String?;
+      final accessToken =
+          await _localStorage.readKey(StorageKey.accessToken) as String?;
 
       if (accessToken != null && accessToken.isNotEmpty) {
         options.headers['Authorization'] = 'Bearer $accessToken';
       }
       options.headers['Accept-Language'] = 'en';
     } catch (e, st) {
-      Logger.error("AuthInterceptor error: $e\n$st");
+      AppLogger.error("AuthInterceptor error: $e\n$st");
     }
 
     return handler.next(options);

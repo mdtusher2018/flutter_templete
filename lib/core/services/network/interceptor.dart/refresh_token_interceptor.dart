@@ -58,7 +58,7 @@ class RefreshTokenInterceptor extends Interceptor {
         _forceLogout();
         handler.next(err);
       } catch (e, st) {
-        Logger.error("Refresh interceptor error: $e\n$st");
+        AppLogger.error("Refresh interceptor error: $e\n$st");
         _forceLogout();
         handler.next(err);
       } finally {
@@ -114,8 +114,8 @@ class RefreshTokenInterceptor extends Interceptor {
   }
 
   void _forceLogout() {
-    Logger.log("Refresh failed → Logging out user...");
-    
+    AppLogger.log("Refresh failed → Logging out user...");
+
     //implement logout
 
     localStorage.clearAll();

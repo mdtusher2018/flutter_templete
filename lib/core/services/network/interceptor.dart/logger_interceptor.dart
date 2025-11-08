@@ -4,7 +4,7 @@ import '../../../utils/logger.dart';
 class LoggingInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    Logger.log(
+    AppLogger.log(
       '➡️ Request: [${options.method}] ${options.uri} \nHeaders: ${options.headers} \nData: ${options.data}',
       tag: 'DIO',
     );
@@ -13,7 +13,7 @@ class LoggingInterceptor extends Interceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    Logger.log(
+    AppLogger.log(
       '✅ Response: [${response.statusCode}] ${response.requestOptions.uri} \nData: ${response.data}',
       tag: 'DIO',
     );
@@ -22,7 +22,7 @@ class LoggingInterceptor extends Interceptor {
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
-    Logger.error(
+    AppLogger.error(
       '❌ Error: [${err.response?.statusCode}] ${err.requestOptions.uri} \nMessage: ${err.message}',
       tag: 'DIO',
     );

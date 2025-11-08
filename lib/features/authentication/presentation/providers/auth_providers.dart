@@ -1,27 +1,52 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:template/core/providers.dart';
-import 'package:template/features/authentication/data/models/login_response.dart';
 import 'package:template/features/authentication/data/repositories/auth_repository.dart';
-import 'package:template/features/authentication/domain/usecases/login_usecase.dart';
-import 'package:template/features/authentication/presentation/notifiers/auth_notifier.dart';
+import 'package:template/features/authentication/domain/entites/signin_entity.dart';
+import 'package:template/features/authentication/domain/entites/signup_entity.dart';
+import 'package:template/features/authentication/domain/usecase/signin_usecase.dart';
+import 'package:template/features/authentication/domain/usecase/signup_usecase.dart';
+import 'package:template/features/authentication/presentation/notifiers/signin_notifier.dart';
+import 'package:template/features/authentication/presentation/notifiers/signup_notifier.dart';
 
-// 🔹 Repository Provider
 final authRepositoryProvider = Provider((ref) {
   final api = ref.watch(apiServiceProvider); // directly from core
   return AuthRepository(api);
 });
 
-// 🔹 UseCase Provider
-final loginUseCaseProvider = Provider((ref) {
-  final repo = ref.watch(authRepositoryProvider);
-  return LoginUseCase(repo);
-});
-
-// 🔹 Notifier Provider
-final authProvider =
-    StateNotifierProvider<AuthNotifier, AsyncValue<LoginResponse?>>((ref) {
-      final usecase = ref.watch(loginUseCaseProvider);
+final loginProvider =
+    StateNotifierProvider<LoginNotifier, AsyncValue<SigninEntity?>>((ref) {
+      final localService = ref.watch(localStorageProvider);
       final apiService = ref.watch(apiServiceProvider);
       final snackbarService = ref.watch(snackBarServiceProvider);
-      return AuthNotifier(usecase, apiService, snackbarService);
+      final authRepository = ref.watch(authRepositoryProvider);
+
+      final loginUseCase = LoginUseCase(
+        authRepository: authRepository,
+        localStorage: localService,
+      );
+
+      return LoginNotifier(
+        apiService,
+        snackbarService,
+        loginUseCase: loginUseCase,
+      );
+    });
+
+final signupProvider =
+    StateNotifierProvider<SignupNotifier, AsyncValue<SignupEntity?>>((ref) {
+      final localService = ref.watch(localStorageProvider);
+      final apiService = ref.watch(apiServiceProvider);
+      final snackbarService = ref.watch(snackBarServiceProvider);
+      final authRepository = ref.watch(authRepositoryProvider);
+
+      final signupUseCase = SignupUseCase(
+        localStorage: localService,
+        authRepository: authRepository,
+      );
+
+      return SignupNotifier(
+        apiService,
+        snackbarService,
+        signupUseCase: signupUseCase,
+      );
     });

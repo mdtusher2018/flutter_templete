@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:template/features/authentication/presentation/providers/auth_providers.dart';
 
-class LoginPage extends ConsumerWidget {
-  LoginPage({super.key});
+class SigninPage extends ConsumerWidget {
+  SigninPage({super.key});
 
   final emailCtrl = TextEditingController();
   final passCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final authState = ref.watch(authProvider);
+    final authState = ref.watch(loginProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text("Login")),
@@ -33,8 +33,11 @@ class LoginPage extends ConsumerWidget {
                 : ElevatedButton(
                   onPressed: () {
                     ref
-                        .read(authProvider.notifier)
-                        .login(emailCtrl.text.trim(), passCtrl.text.trim());
+                        .read(loginProvider.notifier)
+                        .login(
+                          email: emailCtrl.text.trim(),
+                          password: passCtrl.text.trim(),
+                        );
                   },
                   child: const Text("Login"),
                 ),
