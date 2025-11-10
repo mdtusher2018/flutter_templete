@@ -1,6 +1,8 @@
 import 'package:template/core/services/network/i_api_service.dart';
 import 'package:template/core/utils/api_end_points.dart';
-import 'package:template/features/authentication/data/models/email_verified_model.dart';
+import 'package:template/features/authentication/data/models/email_verified_response.dart';
+import 'package:template/features/authentication/data/models/forgot_password_response.dart';
+import 'package:template/features/authentication/data/models/otp_verified_response.dart';
 import 'package:template/features/authentication/data/models/signin_response.dart';
 import 'package:template/features/authentication/data/models/signup_response.dart';
 import 'package:template/features/authentication/domain/repositories/i_auth_repository.dart';
@@ -36,5 +38,21 @@ class AuthRepository implements IAuthRepository {
     });
 
     return EmailVerifiedResponse.fromJson(res);
+  }
+
+  @override
+  Future<ForgotPasswordResponse> forgotPassword(String email) async {
+    final res = await api.post(ApiEndpoints.forgetPassword, {'email': email});
+    return ForgotPasswordResponse.fromJson(res);
+  }
+
+  @override
+  Future<OtpVerifiedResponse> otpVerification(String otp) async {
+    final res = await api.post(ApiEndpoints.verifyOTP, {
+      "otp": otp,
+      "purpose": "forget-password",
+    });
+
+    return OtpVerifiedResponse.fromJson(res);
   }
 }

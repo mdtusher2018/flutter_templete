@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:template/config/router/routes.dart';
+import 'package:template/core/providers.dart';
 import 'package:template/features/authentication/domain/entites/signup_entity.dart';
-import 'package:template/features/authentication/presentation/pages/email_verification_page.dart';
-import 'package:template/features/authentication/presentation/providers/auth_providers.dart';
 
 class SignupPage extends ConsumerWidget {
   SignupPage({super.key});
@@ -17,14 +18,7 @@ class SignupPage extends ConsumerWidget {
     ref.listen<AsyncValue<SignupEntity?>>(signupProvider, (prev, next) {
       next.whenData((success) {
         if (success != null) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return EmailVerificationPage();
-              },
-            ),
-          );
+          context.push(AppRoutes.emailVerification);
         }
       });
     });

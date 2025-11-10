@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:template/config/router/app_router.dart';
 import 'package:template/core/providers.dart';
 import 'package:template/core/services/snackbar/snackbar_service.dart';
-
-import 'package:template/features/authentication/presentation/pages/signup_page.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -15,13 +14,13 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final snackBarService = ref.read(snackBarServiceProvider);
-
-    return MaterialApp(
+    final router = ref.watch(appRouterProvider);
+    return MaterialApp.router(
       scaffoldMessengerKey: (snackBarService as SnackBarService).messengerKey,
       title: 'Template App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: SignupPage(),
+      routerConfig: router,
     );
   }
 }

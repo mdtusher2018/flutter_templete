@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:template/features/authentication/presentation/providers/auth_providers.dart';
+import 'package:go_router/go_router.dart';
+import 'package:template/config/router/routes.dart';
+import 'package:template/core/providers.dart';
+import 'package:template/features/authentication/domain/entites/signin_entity.dart';
 
 class SigninPage extends ConsumerWidget {
   SigninPage({super.key});
 
-  final emailCtrl = TextEditingController();
-  final passCtrl = TextEditingController();
+  final emailCtrl = TextEditingController(text: "businessman@gmail.com");
+  final passCtrl = TextEditingController(text: "hello123");
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final authState = ref.watch(loginProvider);
-
+    final authState = ref.watch(signinProvider);
+    ref.listen<AsyncValue<SigninEntity?>>(signinProvider, (prev, next) {
+      next.whenData((success) {
+        if (success != null) {
+          context.go(AppRoutes.home);
+        }
+      });
+    });
     return Scaffold(
       appBar: AppBar(title: const Text("Login")),
       body: Padding(
@@ -33,7 +42,7 @@ class SigninPage extends ConsumerWidget {
                 : ElevatedButton(
                   onPressed: () {
                     ref
-                        .read(loginProvider.notifier)
+                        .read(signinProvider.notifier)
                         .login(
                           email: emailCtrl.text.trim(),
                           password: passCtrl.text.trim(),

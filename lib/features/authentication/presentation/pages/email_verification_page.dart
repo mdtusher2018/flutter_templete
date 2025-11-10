@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:template/features/authentication/presentation/providers/auth_providers.dart';
+import 'package:go_router/go_router.dart';
+import 'package:template/config/router/routes.dart';
+import 'package:template/core/providers.dart';
+import 'package:template/features/authentication/domain/entites/email_verified_entity.dart';
 
 class EmailVerificationPage extends ConsumerStatefulWidget {
   const EmailVerificationPage({super.key});
@@ -28,6 +31,17 @@ class _EmailVerificationPageState extends ConsumerState<EmailVerificationPage> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(emailVerificationProvider);
+
+    ref.listen<AsyncValue<EmailVerifiedEntity?>>(emailVerificationProvider, (
+      prev,
+      next,
+    ) {
+      next.whenData((success) {
+        if (success != null) {
+          context.go(AppRoutes.home);
+        }
+      });
+    });
 
     return Scaffold(
       appBar: AppBar(title: const Text("Verify Your Email")),
