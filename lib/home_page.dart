@@ -1,10 +1,9 @@
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:template/config/router/routes.dart';
-import 'package:template/core/analytics/analytics_events.dart';
-import 'package:template/core/analytics/analytics_provider.dart';
+import 'package:template/core/analytics_and_crashlytics/analytics/analytics_events.dart';
+import 'package:template/core/analytics_and_crashlytics/analytics_and_crashlytics_provider.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -41,10 +40,10 @@ class HomePage extends ConsumerWidget {
             ),
             InkWell(
               onTap: () {
-                FirebaseCrashlytics.instance.crash();
+                ref.read(crashlyticsServiceProvider).triggerCrash();
               },
               child: Text(
-                "Crush for Crashlytics",
+                "Crush for Test Crashlytics",
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),

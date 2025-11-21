@@ -1,7 +1,7 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:template/core/analytics/analytics_observer.dart';
+import 'package:template/core/analytics_and_crashlytics/analytics/analytics_observer.dart';
 import 'package:template/features/authentication/presentation/pages/email_verification_page.dart';
 import 'package:template/features/authentication/presentation/pages/forgot_password_page.dart';
 import 'package:template/features/authentication/presentation/pages/otp_verification_page.dart';
