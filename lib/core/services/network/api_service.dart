@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:template/core/services/network/api_client.dart';
 import 'package:template/core/services/network/i_api_service.dart';
 
-class ApiService implements IApiService {
+final class ApiService implements IApiService {
   final ApiClient _client;
   final String _baseUrl;
 

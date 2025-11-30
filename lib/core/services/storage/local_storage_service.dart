@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:template/core/services/storage/i_local_storage_service.dart';
 import 'package:template/core/services/storage/storage_key.dart';
 
-class LocalStorageService implements ILocalStorageService {
+final class LocalStorageService implements ILocalStorageService {
   static final LocalStorageService _instance = LocalStorageService._internal();
   late SharedPreferences _prefs;
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();

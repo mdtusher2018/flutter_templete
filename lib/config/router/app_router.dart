@@ -7,6 +7,7 @@ import 'package:template/features/authentication/presentation/pages/forgot_passw
 import 'package:template/features/authentication/presentation/pages/otp_verification_page.dart';
 import 'package:template/features/authentication/presentation/pages/signin_page.dart';
 import 'package:template/features/authentication/presentation/pages/signup_page.dart';
+import 'package:template/features/profile/presentation/page/profile_page.dart';
 import 'package:template/splash_page.dart';
 
 import '../../home_page.dart';
@@ -46,6 +47,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.home,
         builder: (context, state) => const HomePage(),
+      ),
+
+      GoRoute(
+        path: AppRoutes.profile,
+        builder: (context, state) => const ProfilePage(),
       ),
     ],
   );

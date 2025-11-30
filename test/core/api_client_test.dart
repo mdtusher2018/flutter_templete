@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:template/core/error/api_exception.dart';
@@ -10,22 +11,27 @@ class MockDio extends Mock implements Dio {}
 
 class MockLocalStorage extends Mock implements ILocalStorageService {}
 
+class MockNavigatorKey extends Mock implements GlobalKey<NavigatorState> {}
+
 void main() {
   late ApiClient client;
   late MockDio mockDio;
   late Interceptors interceptors;
   late MockLocalStorage mockStorage;
+  late GlobalKey<NavigatorState> mockNavigatorKey;
 
   setUp(() {
     mockDio = MockDio();
     mockStorage = MockLocalStorage();
     interceptors = Interceptors();
+    mockNavigatorKey = MockNavigatorKey();
     when(() => mockDio.interceptors).thenReturn(interceptors);
 
     client = ApiClient(
       dio: mockDio, // inject mock
       baseUrl: ApiEndpoints.baseImageUrl,
       localStorage: mockStorage,
+      navigatorKey: mockNavigatorKey,
     );
   });
 

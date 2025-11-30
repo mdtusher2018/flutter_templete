@@ -5,6 +5,7 @@ import 'package:template/config/router/app_router.dart';
 import 'package:template/core/analytics_and_crashlytics/crashlytics/crashlytics_service.dart';
 import 'package:template/core/providers.dart';
 import 'package:template/core/services/snackbar/snackbar_service.dart';
+import 'package:template/core/services/storage/local_storage_service.dart';
 import 'package:template/firebase_options.dart';
 
 void main() async {
@@ -13,6 +14,8 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   CrashlyticsService.initialize();
+
+  LocalStorageService().init();
 
   runApp(const ProviderScope(child: MyApp()));
 }

@@ -23,7 +23,7 @@ final localStorageProvider = AutoDisposeProvider<ILocalStorageService>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef LocalStorageRef = AutoDisposeProviderRef<ILocalStorageService>;
-String _$apiClientHash() => r'19bcd146e6eeb029cae7ba26995d0b4ede6cbdc0';
+String _$apiClientHash() => r'425cadbf3902a0ef0ba04860277439762b853368';
 
 /// See also [apiClient].
 @ProviderFor(apiClient)
@@ -74,11 +74,11 @@ final snackBarServiceProvider = AutoDisposeProvider<ISnackBarService>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef SnackBarServiceRef = AutoDisposeProviderRef<ISnackBarService>;
-String _$authRepositoryHash() => r'3b739fed187169b035607bf94af2217df2a4a7dc';
+String _$authRepositoryHash() => r'f1c4def8116e87d7a51bd9123b9f7ab7d7bfded7';
 
 /// See also [authRepository].
 @ProviderFor(authRepository)
-final authRepositoryProvider = AutoDisposeProvider<AuthRepository>.internal(
+final authRepositoryProvider = AutoDisposeProvider<IAuthRepository>.internal(
   authRepository,
   name: r'authRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -90,6 +90,24 @@ final authRepositoryProvider = AutoDisposeProvider<AuthRepository>.internal(
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef AuthRepositoryRef = AutoDisposeProviderRef<AuthRepository>;
+typedef AuthRepositoryRef = AutoDisposeProviderRef<IAuthRepository>;
+String _$profileRepositoryHash() => r'2eaa918c583f9f9eed618e64c8e62c739984061d';
+
+/// See also [profileRepository].
+@ProviderFor(profileRepository)
+final profileRepositoryProvider =
+    AutoDisposeProvider<IProfileRepository>.internal(
+      profileRepository,
+      name: r'profileRepositoryProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$profileRepositoryHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef ProfileRepositoryRef = AutoDisposeProviderRef<IProfileRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

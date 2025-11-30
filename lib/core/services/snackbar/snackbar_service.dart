@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'i_snackbar_service.dart';
 
-class SnackBarService implements ISnackBarService {
+final class SnackBarService implements ISnackBarService {
   final GlobalKey<ScaffoldMessengerState> _messengerKey =
       GlobalKey<ScaffoldMessengerState>();
 

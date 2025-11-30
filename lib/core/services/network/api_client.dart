@@ -1,6 +1,7 @@
 // lib/core/network/api_client.dart
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:template/core/utils/logger.dart';
 import 'package:template/core/error/api_exception.dart';
 import 'package:template/core/services/network/interceptor.dart/auth_interceptor.dart';
@@ -12,11 +13,13 @@ import 'package:template/core/services/storage/i_local_storage_service.dart';
 class ApiClient {
   final Dio dio;
   final ILocalStorageService localStorage;
+  final GlobalKey<NavigatorState> navigatorKey;
 
   ApiClient({
     Dio? dio,
     required String baseUrl,
     required this.localStorage,
+    required this.navigatorKey,
     Duration connectTimeout = const Duration(seconds: 10),
     Duration receiveTimeout = const Duration(seconds: 15),
   }) : dio =
@@ -32,7 +35,9 @@ class ApiClient {
            ) {
     // add interceptors
     this.dio.interceptors.add(AuthInterceptor(localStorage));
-    this.dio.interceptors.add(RefreshTokenInterceptor(this.dio, localStorage));
+    this.dio.interceptors.add(
+      RefreshTokenInterceptor(this.dio, localStorage, navigatorKey),
+    );
     this.dio.interceptors.add(
       RetryOnConnectionChangeInterceptor(dio: this.dio),
     );
@@ -151,10 +156,9 @@ class ApiClient {
 
     if (statusCode >= 200 && statusCode < 300) return data;
 
-    final message =
-        data is Map && data['message'] != null
-            ? data['message'] as String
-            : 'Unknown error';
+    final message = data is Map && data['message'] != null
+        ? data['message'] as String
+        : 'Unknown error';
     throw ApiException(statusCode, message, data: data);
   }
 }

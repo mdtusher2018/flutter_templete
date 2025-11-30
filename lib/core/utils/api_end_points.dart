@@ -23,4 +23,6 @@ class ApiEndpoints {
 
   static String forgetPassword = "auth/forgot-password";
   static String verifyOTP = "auth/verify-otp";
+
+  static String userProfile = "users/user-details";
 }

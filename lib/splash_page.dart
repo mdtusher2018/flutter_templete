@@ -15,6 +15,7 @@ class SplashPage extends StatelessWidget {
       {'label': 'OTP Verification', 'route': AppRoutes.otpVerification},
       {'label': 'Reset Password', 'route': AppRoutes.resetPassword},
       {'label': 'Analytics Test', 'route': AppRoutes.home},
+      {'label': 'Profile', 'route': AppRoutes.profile},
     ];
 
     return Scaffold(

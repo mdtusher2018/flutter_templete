@@ -2,6 +2,9 @@
 
 import 'dart:async';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:template/config/router/routes.dart';
 import 'package:template/core/utils/logger.dart';
 
 import 'package:template/core/services/storage/i_local_storage_service.dart';
@@ -11,11 +14,12 @@ import 'package:template/core/utils/api_end_points.dart';
 class RefreshTokenInterceptor extends Interceptor {
   final Dio dio;
   final ILocalStorageService localStorage;
+  final GlobalKey<NavigatorState> navigatorKey;
 
   bool _isRefreshing = false;
   final List<_QueuedRequest> _requestQueue = [];
 
-  RefreshTokenInterceptor(this.dio, this.localStorage);
+  RefreshTokenInterceptor(this.dio, this.localStorage, this.navigatorKey);
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) async {
@@ -117,6 +121,9 @@ class RefreshTokenInterceptor extends Interceptor {
     AppLogger.log("Refresh failed → Logging out user...");
 
     //implement logout
+    if (navigatorKey.currentState?.mounted == true) {
+      navigatorKey.currentState?.context.goNamed(AppRoutes.signIn, extra: true);
+    }
 
     localStorage.clearAll();
   }
