@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'providers.dart';
+part of 'dependency_injection.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$localStorageHash() => r'c5e578fd08890731f1f278a5bad0fccd036cad8a';
+String _$localStorageHash() => r'11aea3e618f1ad3f0677ff4308749d9edd7237fa';
 
 /// See also [localStorage].
 @ProviderFor(localStorage)
@@ -23,7 +23,7 @@ final localStorageProvider = AutoDisposeProvider<ILocalStorageService>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef LocalStorageRef = AutoDisposeProviderRef<ILocalStorageService>;
-String _$apiClientHash() => r'425cadbf3902a0ef0ba04860277439762b853368';
+String _$apiClientHash() => r'078e6f8d5b8d3b68ef623ada5bbccb49887e4ef4';
 
 /// See also [apiClient].
 @ProviderFor(apiClient)
@@ -40,7 +40,7 @@ final apiClientProvider = AutoDisposeProvider<ApiClient>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef ApiClientRef = AutoDisposeProviderRef<ApiClient>;
-String _$apiServiceHash() => r'9eb0df7a808096ad5cb7573f210e04a24e63e1ae';
+String _$apiServiceHash() => r'b747e05e798dce0138f4664b62198bfe98a57d06';
 
 /// See also [apiService].
 @ProviderFor(apiService)
@@ -57,7 +57,7 @@ final apiServiceProvider = AutoDisposeProvider<IApiService>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef ApiServiceRef = AutoDisposeProviderRef<IApiService>;
-String _$snackBarServiceHash() => r'18468b2636353aa7a3ab14d990d0cdf3dd327a2f';
+String _$snackBarServiceHash() => r'2c860fa5d47d2ddeda4b1736c647e74ca07589a9';
 
 /// See also [snackBarService].
 @ProviderFor(snackBarService)
@@ -74,7 +74,7 @@ final snackBarServiceProvider = AutoDisposeProvider<ISnackBarService>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef SnackBarServiceRef = AutoDisposeProviderRef<ISnackBarService>;
-String _$authRepositoryHash() => r'f1c4def8116e87d7a51bd9123b9f7ab7d7bfded7';
+String _$authRepositoryHash() => r'314d9da22c9818fd71741340329d57a7b6fd3472';
 
 /// See also [authRepository].
 @ProviderFor(authRepository)
@@ -91,7 +91,7 @@ final authRepositoryProvider = AutoDisposeProvider<IAuthRepository>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef AuthRepositoryRef = AutoDisposeProviderRef<IAuthRepository>;
-String _$profileRepositoryHash() => r'2eaa918c583f9f9eed618e64c8e62c739984061d';
+String _$profileRepositoryHash() => r'788192c1b24f587cbb73d94d8a408595c58fc07c';
 
 /// See also [profileRepository].
 @ProviderFor(profileRepository)
@@ -109,5 +109,58 @@ final profileRepositoryProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef ProfileRepositoryRef = AutoDisposeProviderRef<IProfileRepository>;
+String _$loginUseCaseHash() => r'163df60300194b03596a94b15320fe1fa534d4a3';
+
+/// See also [loginUseCase].
+@ProviderFor(loginUseCase)
+final loginUseCaseProvider = AutoDisposeProvider<SigninUseCase>.internal(
+  loginUseCase,
+  name: r'loginUseCaseProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$loginUseCaseHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef LoginUseCaseRef = AutoDisposeProviderRef<SigninUseCase>;
+String _$signupUseCaseHash() => r'85387d42803b84563a2e1a9d619fbddccf85c599';
+
+/// See also [signupUseCase].
+@ProviderFor(signupUseCase)
+final signupUseCaseProvider = AutoDisposeProvider<SignupUseCase>.internal(
+  signupUseCase,
+  name: r'signupUseCaseProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$signupUseCaseHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef SignupUseCaseRef = AutoDisposeProviderRef<SignupUseCase>;
+String _$emailVerifiedUsecaseHash() =>
+    r'8b6746b58615dac4e172e9db10695086248a393e';
+
+/// See also [emailVerifiedUsecase].
+@ProviderFor(emailVerifiedUsecase)
+final emailVerifiedUsecaseProvider =
+    AutoDisposeProvider<EmailVerifiedUsecase>.internal(
+      emailVerifiedUsecase,
+      name: r'emailVerifiedUsecaseProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$emailVerifiedUsecaseHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef EmailVerifiedUsecaseRef = AutoDisposeProviderRef<EmailVerifiedUsecase>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

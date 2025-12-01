@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:template/core/base/failure.dart';
 import 'package:template/core/base/result.dart';
-import 'package:template/core/providers.dart';
+import '../../../../core/di/dependency_injection.dart';
 import 'package:template/features/profile/domain/entities/user_profile_entity.dart';
 import 'package:template/features/profile/domain/usecase/profile_usecase.dart';
 

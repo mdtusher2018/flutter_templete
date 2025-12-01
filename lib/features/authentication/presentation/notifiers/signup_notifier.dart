@@ -1,18 +1,10 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:template/core/base/failure.dart';
 import 'package:template/core/base/result.dart';
-import 'package:template/core/providers.dart';
+import '../../../../core/di/dependency_injection.dart';
 import 'package:template/features/authentication/domain/entites/signup_entity.dart';
 import 'package:template/features/authentication/domain/usecase/signup_usecase.dart';
 part 'signup_notifier.g.dart';
-
-@riverpod
-SignupUseCase _signupUseCase(_SignupUseCaseRef ref) {
-  return SignupUseCase(
-    localStorage: ref.watch(localStorageProvider),
-    authRepository: ref.watch(authRepositoryProvider),
-  );
-}
 
 @riverpod
 class SignupNotifier extends _$SignupNotifier {
@@ -20,7 +12,7 @@ class SignupNotifier extends _$SignupNotifier {
 
   @override
   FutureOr<SignupEntity?> build() {
-    signupUseCase = ref.watch(_signupUseCaseProvider);
+    signupUseCase = ref.watch(signupUseCaseProvider);
     return null;
   }
 

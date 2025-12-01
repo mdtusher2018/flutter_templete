@@ -78,10 +78,9 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: _onSubmit,
-                child:
-                    (state.isLoading)
-                        ? Center(child: const CircularProgressIndicator())
-                        : const Text('Send'),
+                child: (state.isLoading)
+                    ? Center(child: const CircularProgressIndicator())
+                    : const Text('Send'),
               ),
             ),
             const SizedBox(height: 16),

@@ -6,24 +6,7 @@ part of 'signin_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$loginUseCaseHash() => r'dce0834312544142b12f9d5f596364655f7ddbe1';
-
-/// See also [_loginUseCase].
-@ProviderFor(_loginUseCase)
-final _loginUseCaseProvider = AutoDisposeProvider<SigninUseCase>.internal(
-  _loginUseCase,
-  name: r'_loginUseCaseProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$loginUseCaseHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef _LoginUseCaseRef = AutoDisposeProviderRef<SigninUseCase>;
-String _$loginNotifierHash() => r'095e748af20162d7a61610b612a03ee7ed93e085';
+String _$loginNotifierHash() => r'64444a3903b52785a62e61aa5f84f7b8b3a9a262';
 
 /// See also [LoginNotifier].
 @ProviderFor(LoginNotifier)

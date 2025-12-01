@@ -1,19 +1,12 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:template/core/base/failure.dart';
 import 'package:template/core/base/result.dart';
-import 'package:template/core/providers.dart';
+import '../../../../core/di/dependency_injection.dart';
 import 'package:template/features/authentication/domain/entites/email_verified_entity.dart';
 import 'package:template/features/authentication/domain/usecase/email_verified_usecase.dart';
-
 part 'email_verified_notifier.g.dart';
 
-@riverpod
-EmailVerifiedUsecase _emailVerifiedUsecase(_EmailVerifiedUsecaseRef ref) {
-  return EmailVerifiedUsecase(
-    authRepository: ref.watch(authRepositoryProvider),
-    localStorage: ref.watch(localStorageProvider),
-  );
-}
+
 
 @riverpod
 class EmailVerifiedNotifier extends _$EmailVerifiedNotifier {
@@ -21,7 +14,7 @@ class EmailVerifiedNotifier extends _$EmailVerifiedNotifier {
 
   @override
   FutureOr<EmailVerifiedEntity?> build() {
-    emailVerifiedUsecase = ref.watch(_emailVerifiedUsecaseProvider);
+    emailVerifiedUsecase = ref.watch(emailVerifiedUsecaseProvider);
     return null;
   }
 

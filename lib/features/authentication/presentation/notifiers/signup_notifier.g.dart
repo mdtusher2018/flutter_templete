@@ -6,24 +6,7 @@ part of 'signup_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$signupUseCaseHash() => r'5c5bfbe4b61a853067f67d11121d44c76bff6732';
-
-/// See also [_signupUseCase].
-@ProviderFor(_signupUseCase)
-final _signupUseCaseProvider = AutoDisposeProvider<SignupUseCase>.internal(
-  _signupUseCase,
-  name: r'_signupUseCaseProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$signupUseCaseHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef _SignupUseCaseRef = AutoDisposeProviderRef<SignupUseCase>;
-String _$signupNotifierHash() => r'3a94820ea6230715f8ac14fc6dd7f0e3a9356e9c';
+String _$signupNotifierHash() => r'8f4aade77ee0b47e5d70096a9dc99c1e715ed4b7';
 
 /// See also [SignupNotifier].
 @ProviderFor(SignupNotifier)

@@ -70,12 +70,12 @@ class _OtpVerificationPageState extends ConsumerState<OtpVerificationPage> {
             state.isLoading
                 ? const CircularProgressIndicator()
                 : SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: _verifyOtp,
-                    child: const Text('Verify OTP'),
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: _verifyOtp,
+                      child: const Text('Verify OTP'),
+                    ),
                   ),
-                ),
             const SizedBox(height: 16),
             TextButton(
               onPressed: () => context.pop(),

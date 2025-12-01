@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:template/core/providers.dart';
+import '../../../../core/di/dependency_injection.dart';
 import 'package:template/features/profile/presentation/notifiers/profile_notifier.dart';
 import 'package:template/features/profile/domain/entities/user_profile_entity.dart';
 

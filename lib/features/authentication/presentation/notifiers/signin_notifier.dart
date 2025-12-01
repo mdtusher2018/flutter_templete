@@ -1,5 +1,5 @@
 // features/authentication/domain/notifiers/login_notifier.dart
-import 'package:template/core/providers.dart';
+import '../../../../core/di/dependency_injection.dart';
 import 'package:template/features/authentication/domain/entites/signin_entity.dart';
 import 'package:template/features/authentication/domain/usecase/signin_usecase.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -8,20 +8,12 @@ import 'package:template/core/base/result.dart';
 part 'signin_notifier.g.dart';
 
 @riverpod
-SigninUseCase _loginUseCase(_LoginUseCaseRef ref) {
-  return SigninUseCase(
-    authRepository: ref.watch(authRepositoryProvider),
-    localStorage: ref.watch(localStorageProvider),
-  );
-}
-
-@riverpod
 class LoginNotifier extends _$LoginNotifier {
   late final SigninUseCase _useCase;
 
   @override
   FutureOr<SigninEntity?> build() {
-    _useCase = ref.watch(_loginUseCaseProvider);
+    _useCase = ref.watch(loginUseCaseProvider);
     return null; // initial state
   }
 
