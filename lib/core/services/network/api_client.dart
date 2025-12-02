@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:template/core/utils/logger.dart';
-import 'package:template/core/error/api_exception.dart';
+import 'package:template/core/services/network/error/api_exception.dart';
 import 'package:template/core/services/network/interceptor.dart/auth_interceptor.dart';
 import 'package:template/core/services/network/interceptor.dart/logger_interceptor.dart';
 import 'package:template/core/services/network/interceptor.dart/refresh_token_interceptor.dart';
@@ -20,8 +20,8 @@ class ApiClient {
     required String baseUrl,
     required this.localStorage,
     required this.navigatorKey,
-    Duration connectTimeout = const Duration(seconds: 10),
-    Duration receiveTimeout = const Duration(seconds: 15),
+    Duration connectTimeout = const Duration(seconds: 5),
+    Duration receiveTimeout = const Duration(seconds: 3),
   }) : dio =
            dio ??
            Dio(
@@ -30,18 +30,15 @@ class ApiClient {
                connectTimeout: connectTimeout,
                receiveTimeout: receiveTimeout,
                headers: {HttpHeaders.contentTypeHeader: 'application/json'},
-               validateStatus: (_) => true,
              ),
            ) {
     // add interceptors
-    this.dio.interceptors.add(AuthInterceptor(localStorage));
-    this.dio.interceptors.add(
+    this.dio.interceptors.addAll([
+      AuthInterceptor(localStorage),
       RefreshTokenInterceptor(this.dio, localStorage, navigatorKey),
-    );
-    this.dio.interceptors.add(
       RetryOnConnectionChangeInterceptor(dio: this.dio),
-    );
-    this.dio.interceptors.add(LoggingInterceptor());
+      LoggingInterceptor(),
+    ]);
   }
 
   Future<dynamic> get(Uri url, {Map<String, String>? headers}) async {

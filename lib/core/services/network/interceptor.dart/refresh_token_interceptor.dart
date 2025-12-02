@@ -22,9 +22,9 @@ class RefreshTokenInterceptor extends Interceptor {
   RefreshTokenInterceptor(this.dio, this.localStorage, this.navigatorKey);
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) async {
+  void onError(DioException err, ErrorInterceptorHandler handler) async {
     final response = err.response;
-
+    AppLogger.error("=========>>>>>>>> this is an error");
     if (response?.statusCode == 401 && !_isAuthRefreshCall(err)) {
       final requestOptions = err.requestOptions;
 
@@ -98,7 +98,9 @@ class RefreshTokenInterceptor extends Interceptor {
 
         return newAccess;
       }
-    } catch (_) {}
+    } catch (_) {
+      _forceLogout();
+    }
     return null;
   }
 
@@ -120,12 +122,11 @@ class RefreshTokenInterceptor extends Interceptor {
   void _forceLogout() {
     AppLogger.log("Refresh failed → Logging out user...");
 
+    localStorage.clearAll();
     //implement logout
     if (navigatorKey.currentState?.mounted == true) {
-      navigatorKey.currentState?.context.goNamed(AppRoutes.signIn, extra: true);
+      navigatorKey.currentState?.context.go(AppRoutes.signIn);
     }
-
-    localStorage.clearAll();
   }
 }
 

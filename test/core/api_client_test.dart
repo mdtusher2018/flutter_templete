@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:template/core/error/api_exception.dart';
+import 'package:template/core/services/network/error/api_exception.dart';
 import 'package:template/core/services/network/api_client.dart';
 import 'package:template/core/services/storage/i_local_storage_service.dart';
 import 'package:template/core/utils/api_end_points.dart';
