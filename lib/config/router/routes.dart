@@ -10,4 +10,8 @@ class AppRoutes {
   static const String home = '/home';
 
   static const String profile = '/profile';
+
+  static const String wellcome = '/welcome-screen';
+
+  static const String allpage = '/all-page';
 }

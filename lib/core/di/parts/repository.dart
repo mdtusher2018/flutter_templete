@@ -3,7 +3,8 @@ part of "../dependency_injection.dart";
 @riverpod
 IAuthRepository authRepository(Ref ref) {
   final api = ref.watch(apiServiceProvider);
-  return AuthRepository(api);
+  final localStorageService = ref.watch(localStorageProvider);
+  return AuthRepository(api, localStorageService);
 }
 
 @riverpod

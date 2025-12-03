@@ -74,7 +74,7 @@ final snackBarServiceProvider = AutoDisposeProvider<ISnackBarService>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef SnackBarServiceRef = AutoDisposeProviderRef<ISnackBarService>;
-String _$authRepositoryHash() => r'314d9da22c9818fd71741340329d57a7b6fd3472';
+String _$authRepositoryHash() => r'616eb4b8fea4687c1ef5b6c18a203b68cf78c9a3';
 
 /// See also [authRepository].
 @ProviderFor(authRepository)

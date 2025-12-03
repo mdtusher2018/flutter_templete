@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:template/config/router/routes.dart';
 
-class SplashPage extends StatelessWidget {
-  const SplashPage({super.key});
+class Allpage extends ConsumerWidget {
+  const Allpage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final buttons = [
       {'label': 'Sign In Page', 'route': AppRoutes.signIn},
       {'label': 'Sign Up Page', 'route': AppRoutes.signUp},
@@ -16,6 +17,7 @@ class SplashPage extends StatelessWidget {
       {'label': 'Reset Password', 'route': AppRoutes.resetPassword},
       {'label': 'Analytics Test', 'route': AppRoutes.home},
       {'label': 'Profile', 'route': AppRoutes.profile},
+      {'label': 'WelcomeScreen', 'route': AppRoutes.wellcome},
     ];
 
     return Scaffold(

@@ -80,7 +80,7 @@ class SigninPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final riveAnimationController = ref.watch(_riveAnimationProvider.notifier);
 
-    final authState = ref.watch(loginNotifierProvider);
+    final signinState = ref.watch(loginNotifierProvider);
     ref.listen<AsyncValue<SigninEntity?>>(loginNotifierProvider, (prev, next) {
       next.whenData((success) {
         if (success != null) {
@@ -204,7 +204,7 @@ class SigninPage extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  authState.isLoading
+                  signinState.isLoading
                       ? const CircularProgressIndicator()
                       : ElevatedButton(
                           onPressed: () {
@@ -231,9 +231,9 @@ class SigninPage extends ConsumerWidget {
                             ),
                           ),
                         ),
-                  if (authState.hasError)
+                  if (signinState.hasError)
                     Text(
-                      authState.error.toString(),
+                      signinState.error.toString(),
                       style: const TextStyle(color: Colors.red),
                     ),
                 ],

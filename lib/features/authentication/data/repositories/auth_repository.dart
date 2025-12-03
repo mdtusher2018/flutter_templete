@@ -1,6 +1,7 @@
 import 'package:template/core/base/failure.dart';
 import 'package:template/core/base/result.dart';
 import 'package:template/core/services/network/i_api_service.dart';
+import 'package:template/core/services/storage/i_local_storage_service.dart';
 import 'package:template/core/utils/api_end_points.dart';
 import 'package:template/features/authentication/data/models/email_verification/email_verified_response.dart';
 import 'package:template/features/authentication/data/models/sign_in/signin_response.dart';
@@ -11,7 +12,8 @@ import 'package:template/features/authentication/domain/repositories/i_auth_repo
 
 final class AuthRepository extends IAuthRepository {
   final IApiService api;
-  AuthRepository(this.api);
+  final ILocalStorageService localStorageService;
+  AuthRepository(this.api, this.localStorageService);
 
   @override
   Future<Result<SigninResponse, Failure>> login(String email, String password) {

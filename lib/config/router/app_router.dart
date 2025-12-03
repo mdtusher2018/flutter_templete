@@ -8,7 +8,8 @@ import 'package:template/features/authentication/presentation/pages/otp_verifica
 import 'package:template/features/authentication/presentation/pages/signin_page.dart';
 import 'package:template/features/authentication/presentation/pages/signup_page.dart';
 import 'package:template/features/profile/presentation/page/profile_page.dart';
-import 'package:template/splash_page.dart';
+import 'package:template/protos/protobuf_service.dart';
+import 'package:template/all_page.dart';
 
 import '../../home_page.dart';
 import 'routes.dart';
@@ -19,10 +20,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     initialLocation: AppRoutes.splash,
     observers: [AppAnalyticsObserver(analytics)],
     routes: [
-      GoRoute(
-        path: AppRoutes.splash,
-        builder: (context, state) => const SplashPage(),
-      ),
+      GoRoute(path: AppRoutes.splash, builder: (context, state) => Allpage()),
+
+      GoRoute(path: AppRoutes.allpage, builder: (context, state) => Allpage()),
+
       GoRoute(
         path: AppRoutes.signIn,
         builder: (context, state) => SigninPage(),
@@ -52,6 +53,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.profile,
         builder: (context, state) => const ProfilePage(),
+      ),
+      GoRoute(
+        path: AppRoutes.wellcome,
+        builder: (context, state) => WelcomeScreen(),
       ),
     ],
   );
