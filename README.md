@@ -241,12 +241,6 @@ dev_dependencies:
 
 ---
 
-## ❤️ Contributing
-
-Feel free to open issues or submit PRs! Improvements are always welcome.
-
----
-
 ## ✨ Thank You
 Thanks for checking out this template.
 Wishing you an awesome Flutter development journey! 🚀
