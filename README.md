@@ -6,7 +6,7 @@ A production-ready **Flutter project template** built with **Clean Architecture*
 
 ## 🎉 Template Attribution & Clarification
 
-This template is heavily based on the incredible work done by **[Momshad Dinury](https://github.com/momshaddinury/)**. I used his **Flutter template** as a starting point and made custom modifications to suit my personal development needs.
+This template is heavily based on the incredible work done by **[Momshad Dinury](https://github.com/momshaddinury/)**. I followed his **Flutter template** as a starting point and made custom modifications to suit my personal development needs.
 
 **Important Clarification:**  
 While I have made several changes and created this version for my personal use, I want to make it clear that the original architecture and structure are inspired by **Momshad Dinury's** template.
