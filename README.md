@@ -4,6 +4,28 @@ A production-ready **Flutter project template** built with **Clean Architecture*
 
 ---
 
+## 🎉 Template Attribution & Clarification
+
+This template is heavily based on the incredible work done by **[Momshad Dinury](https://github.com/momshaddinury/)**. I used his **Flutter template** as a starting point and made custom modifications to suit my personal development needs.
+
+**Important Clarification:**  
+While I have made several changes and created this version for my personal use, I want to make it clear that the original architecture and structure are inspired by **Momshad Dinury's** template.
+
+I keep this template public on my personal GitHub account solely for easier access across multiple devices and accounts. This is **not** an attempt to claim credit for someone else’s work, but to maintain a personal, public copy that I can use wherever I need it.
+
+For the original template, please refer to the [Momshad Dinury Flutter Template](https://github.com/momshaddinury/flutter_template).
+
+---
+
+### Why I’m Sharing This:
+- **I value transparency**: I want to make sure I’m not taking credit for someone else's hard work.
+- **For personal use**: This template is adapted to meet my needs but is based on the original template's architecture.
+
+Thank you to **Momshad Dinury** for creating such a well-thought-out and structured template that has helped me accelerate my development!
+
+---
+
+
 ## 🌟 Features & Highlights
 
 ### 🏗 Architecture & Code Quality
