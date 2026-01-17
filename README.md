@@ -1,128 +1,98 @@
-# 🚀 This Template – Clean Architecture & Scalable App Boilerplate
+# 📘 my_flutter_learn
 
-A production-ready **Flutter project template** built with **Clean Architecture**, **SOLID Principles**, and **Feature-Driven Development**. This template is scalable, maintainable, and ideal for medium to large applications.
+A personal Flutter learning repository where I explore **Clean Architecture**, **scalable app structure**, modern Flutter tooling, and production-grade practices.
 
----
-
-## 🎉 Template Attribution & Clarification
-
-This template is heavily based on the incredible work done by **[Momshad Dinury](https://github.com/momshaddinury/)**. I followed his **Flutter template** as a starting point and made custom modifications to suit my personal development needs.
-
-**Important Clarification:**  
-While I have made several changes and created this version for my personal use, I want to make it clear that the original architecture and structure are inspired by **Momshad Dinury's** template.
-
-I keep this template public on my personal GitHub account solely for easier access across multiple devices and accounts. This is **not** an attempt to claim credit for someone else’s work, but to maintain a personal, public copy that I can use wherever I need it.
-
-For the original template, please refer to the [Momshad Dinury Flutter Template](https://github.com/momshaddinury/flutter_template).
+It is a continuously evolving learning workspace where I experiment, refactor, and improve my understanding of Flutter architecture and real-world application design.
 
 ---
 
-### Why I’m Sharing This:
-- **I value transparency**: I want to make sure I’m not taking credit for someone else's hard work.
-- **For personal use**: This template is adapted to meet my needs but is based on the original template's architecture.
+## 🎯 Purpose of This Repository
 
-Thank you to **Momshad Dinury** for creating such a well-thought-out and structured template that has helped me accelerate my development!
+This project exists to:
+
+* ✅ Practice **Clean Architecture** concepts in Flutter
+* ✅ Learn **feature-driven project structure**
+* ✅ Experiment with **state management**, routing, networking, and DI
+* ✅ Explore production-ready patterns (error handling, logging, security, etc.)
+* ✅ Test and understand various Flutter packages and tooling
+* ✅ Serve as my personal reference codebase across devices
+
+This repository documents my ongoing learning journey and evolving understanding of Flutter architecture.
 
 ---
 
+## 🙏 Attribution & Learning Credit
 
-## 🌟 Features & Highlights
+This project architecture was originally inspired by the excellent Flutter Template work from:
 
-### 🏗 Architecture & Code Quality
+> **Momshad Dinury**
+> GitHub: [https://github.com/momshaddinury/flutter_template](https://github.com/momshaddinury/flutter_template)
+
+I initially followed his template to understand:
+
+* Clean Architecture layering
+* Folder structuring
+* Dependency injection setup
+* Scalable project organization
+
+Over time, I have modified, refactored, added experiments, and adapted the structure to match my own learning goals.
+
+⚠️ **Important:**
+I do not claim ownership of the original architectural idea.
+This repository exists purely as a **learning and experimentation project** built on top of that inspiration.
+
+---
+
+## 🧠 What I’m Practicing / Learning
+
+### 🏗 Architecture
 
 * Clean Architecture (Data → Domain → Presentation)
-* SOLID principles applied across layers
-* Feature-driven folder structure
-* Centralized API client with interceptor-based session refresh
-* Global error handling & crash logging
-* Automatic 401 unauthorized logout
-* Strict separation of concerns (UI ↔ Logic ↔ Repository ↔ Models)
+* SOLID principles
+* Feature-driven modular structure
+* Separation of concerns
+* Repository pattern
+* Use cases
 
-### 💻 State Management & Routing
+### 🔄 State Management & Navigation
 
-| Library                | Usage                                            |
-| ---------------------- | ------------------------------------------------ |
-| **Riverpod**           | App-wide state management & dependency injection |
-| **Riverpod Generator** | Auto-generated providers & notifiers             |
-| **GoRouter**           | Typed routing, navigation, redirection           |
-| **Global 401 Handler** | Auto logout on unauthorized                      |
+* Riverpod (providers, notifiers, generators)
+* Dependency injection using Riverpod
+* GoRouter for navigation and redirection
+* Global session handling
 
----
+### 🌐 Networking & Data
 
-## 🛠 Tech Stack & Packages
+* Dio for API calls
+* Interceptors for token refresh and error handling
+* Secure token storage
+* Local persistence
+* Protobuf experimentation
+* GraphQL experimentation
 
-### 🔑 Core Dependencies
+### 🧪 Testing
 
-| Package                    | Purpose                                 |
-| -------------------------- | --------------------------------------- |
-| **dio**                    | API calls, interceptors, refresh tokens |
-| **flutter_secure_storage** | Secure storage for tokens/sessions      |
-| **shared_preferences**     | Lightweight local storage               |
-| **logger**                 | Debug-only logging                      |
-| **firebase_core**          | Firebase initialization                 |
-| **firebase_analytics**     | User behavior analytics                 |
-| **firebase_crashlytics**   | Crash reporting                         |
-| **rive**                   | High-quality animations                 |
-| **protobuf**               | Demonstration of binary serialization   |
+* Unit testing for services and use cases
+* Mockito / Mocktail usage
+* Test-driven learning
 
-### 👨‍💻 Code Generation
+### 🔐 App Quality & Reliability
 
-* **freezed + annotation** – immutable models & sealed classes
-* **json_serializable** – auto JSON mapping
-* **riverpod_annotation** – simplified state management
-* **build_runner** – code generation engine
+* Firebase Analytics
+* Firebase Crashlytics
+* Global error handling
+* Debug logging control
+* Secure storage practices
 
-#### Benefits
+### 🎨 UI & Animations
 
-✔ Strongly typed models
-✔ Minimal boilerplate
-✔ Immutable data
-✔ Safer & cleaner architecture
+* Rive animations
+* Responsive UI practices
+* Reusable widgets
 
 ---
 
-## 🧪 Testing
-
-Unit tests included for:
-
-* Services
-* UseCase
-
-Tools used:
-
-* **mockito**
-* **mocktail**
-* **flutter_test**
-* **test**
-
-> Note: Focused on **Unit Tests** for now.
-
----
-
-## 🔐 Security & Session Management
-
-* Automated session refresh using Dio interceptors
-* Secure token storage via flutter_secure_storage
-* Global unauthorized interceptor → auto logout
-* Logging enabled only in debug
-
----
-
-## 🎬 Rive Animations
-
-Integrated Rive animations for:
-
-* Login views animation
-
-Example asset included:
-
-```
-assets/3469-7899-login-screen-character.riv
-```
-
----
-
-## 📁 Project Structure Overview
+## 📁 Project Structure (Current)
 
 ```
 lib/
@@ -167,103 +137,50 @@ lib/
 └── main.dart                        # App entry point
 ```
 
-**Why feature-based?**
-✔ Independent development per feature
-✔ Highly scalable & maintainable
-✔ Better code isolation
-✔ Cleaner version control
+> Structure may evolve as I continue learning and experimenting.
 
 ---
 
-## 🧩 Protobuf Module
+## 🛠 Tech Stack & Tools Used
 
-Used as a learning & performance demo.
-
-Best used for:
-
-* Large APIs where response size matters
-* Low-bandwidth communication
-* Faster serialization than JSON
+* Flutter
+* Riverpod + Generator
+* GoRouter
+* Dio
+* Freezed + Json Serializable
+* Firebase (Analytics, Crashlytics)
+* Rive
+* Protobuf
+* GraphQL
+* Mockito / Mocktail
+* Build Runner
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Running Locally
 
-### Step 1: Install dependencies
-
-```
+```bash
 flutter pub get
-```
-
-### Step 2: Run code generators
-
-```
 flutter pub run build_runner build --delete-conflicting-outputs
-```
-
-### Step 3: Launch the app
-
-```
 flutter run
 ```
 
 ---
 
-## 🧰 Build Variants
+## ⚠️ Disclaimer
 
-### Debug Mode
+This repository:
 
-* Logging enabled
-* Error trace enabled
-* Hot reload supported
+* ❌ Is not intended to be a production-ready project
+* ❌ Is not guaranteed to be stable or clean at all times
+* ❌ May contain experiments, breaking changes, and refactors
 
-### Release Mode
-
-* Logging disabled
-* Crashlytics enabled
-* Performance optimized
+It is purely a **personal learning playground**.
 
 ---
 
-## 📦 Full Dependency List
+## ✨ Final Note
 
-```
-dependencies:
-  flutter:
-    sdk: flutter
-  cupertino_icons: 
-  dio: 
-  flutter_secure_storage: 
-  shared_preferences: 
-  flutter_riverpod: 
-  flutter_screenutil: 
-  logger: 
-  go_router: 
-  firebase_core: 
-  firebase_analytics: 
-  firebase_crashlytics: 
-  rive: 
-  riverpod_annotation: 
-  freezed_annotation: 
-  json_annotation:
-  protoc_plugin: 
+Big thanks to **Momshad Dinury** for providing such a solid architectural foundation that helped accelerate my learning.
 
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: 
-  mocktail:
-  freezed:
-  build_runner: 
-  riverpod_generator:
-  json_serializable:
-  mockito:
-```
-
----
-
-## ✨ Thank You
-Thanks for checking out this template.
-Wishing you an awesome Flutter development journey! 🚀
-
+This repo represents my growth journey in Flutter development 🚀
